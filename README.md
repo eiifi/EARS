@@ -1,10 +1,7 @@
 # EARS
-This platform run uploaded java file in Docker container. It take care of creating docker images and builds. It also suports automatic container remave if application run to long. Platofrm also automaticly sort done images into two folders: Succesful and Failed. Image below present steps how plafrom works.
+This platform run uploaded java file in Docker container. Platform create Docker image, run it and also remove image after its finish. It also suports automatic container remave if application run to long. Platofrm also automaticly sort images into two folders: Succesful and Failed. Platofem supports run of multiple files parrael. Maximum parrarel Docker container can be defind in .env file. Image below present steps how plafrom works. 
 
 ![alt text](https://github.com/eiifi/EARS/blob/main/EARS%20Flow.jpg?raw=true)
-
-
-
 
 ## Requirements
 
