@@ -1,4 +1,10 @@
 # EARS
+This platform run uploaded java file in Docker container. It take care of creating docker images and builds. It also suports automatic container remave if application run to long. Platofrm also automaticly sort done images into two folders: Succesful and Failed. Image below present steps how plafrom works.
+
+![alt text](https://github.com/eiifi/EARS/blob/main/EARS%20Flow.jpg?raw=true)
+
+
+
 
 ## Requirements
 
@@ -16,5 +22,3 @@ The application can be started using:
 ```bash
 mvn quarkus:dev
 ```  
-
-Then, open your browser to http://localhost:8080/prices.html, and you should see a fluctuating price.
