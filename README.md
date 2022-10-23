@@ -1,9 +1,11 @@
 # EARS
-This platform run uploaded java file in Docker container. Platform create Docker image, run it and also remove image after its finish. It also suports automatic container remave if application run to long. Platofrm also automaticly sort images into two folders: Succesful and Failed. Platofem supports run of multiple files parrael. Maximum parrarel Docker container can be defind in .env file. Image below present steps how plafrom works.
-ENV file:
+This platform run uploaded java file in Docker container. Platform create Docker image, run it and also remove image after its finish. It also suports automatic container remave if application run to long. Platofrm also automaticly sort images into two folders: Succesful and Failed. Platofem supports run of multiple files parrael.
+We need few things in ENV file:
 - set maximum value of running dockers
 - set path to folder processor, which must include 3 folders (00ROOT, 01FAILED, 02SUCCESS). Every thing what is in 00ROOT will be copied to Docker container.
 - set allowd files (currently supports only .java folder, if Dockerfile is adjust it can run any code)
+
+Image below present steps how plafrom works.
 
 ![alt text](https://github.com/eiifi/EARS/blob/main/EARS%20Flow.jpg?raw=true)
 
