@@ -1,5 +1,5 @@
 # EARS
-This platform run uploaded java file in Docker container. Platform create Docker image, run it and also remove image after its finish. It also suports automatic container remave if application run to long. Platofrm also automaticly sort images into two folders: Succesful and Failed. Platofem supports run of multiple files parrael.
+This platform run uploaded Java file in Docker container. Platform create Docker image, run it and also remove it image after its finish. It also suports automatic container remave, if application run to long. Platofrm also automaticly sort uploded into two folders after they are finishd: Succesful and Failed. Platofem supports run of multiple files parrael.
 
 We need few things in ENV file:
 - set maximum value of running dockers
