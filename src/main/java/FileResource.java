@@ -16,10 +16,10 @@ import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 public class FileResource {
 
     Logger log = Logger.getLogger(FileResource.class.getName());
-  //  @ConfigProperty(name = "root.path")
-    protected String ROOT_PATH= "C:\\Users\\Uporabnik\\Desktop\\magistersko delo\\rest-client-multipart-quickstart\\src\\main\\resources\\processor\\";
-  //  @ConfigProperty(name = "maximum.docker")
-    protected Integer MAX_DOCKER = 3;
+    @ConfigProperty(name = "root.path")
+    protected String ROOT_PATH;
+    @ConfigProperty(name = "maximum.docker")
+    protected Integer MAX_DOCKER;
     @ConfigProperty(name = "file.type")
     protected String TYPE_FILE;
 
@@ -48,7 +48,7 @@ public class FileResource {
     }
 
     @GET
-    public void someTestingShit() throws IOException {
+    public void manualTrigger() throws IOException {
         doJob();
     }
 
@@ -56,8 +56,7 @@ public class FileResource {
     @Path("/status")
     @Produces(MediaType.TEXT_PLAIN)
     public List<String> status(){
-        //return processorService.findFilesToProcess(ROOT_PATH, TYPE_FILE, MAX_DOCKER, true);
-        return List.of("Currently running:", "markokuzner", "janikaukler", "Wating list:", "maticvipotnik.java");
+        return processorService.findFilesToProcess(ROOT_PATH, TYPE_FILE, MAX_DOCKER, true);
     }
 
 

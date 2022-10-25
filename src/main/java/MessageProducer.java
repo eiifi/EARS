@@ -1,3 +1,5 @@
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.jms.ConnectionFactory;
@@ -14,11 +16,16 @@ public class MessageProducer {
     @Inject
     ConnectionFactory connectionFactory;
 
+    @ConfigProperty(name = "mq.enabled")
+    protected Boolean mq_enabled;
+
     public void sendMessage(String message, Status status) {
-        try (JMSContext context = connectionFactory.createContext(Session.AUTO_ACKNOWLEDGE)){
-            context.createProducer().send(context.createQueue("statusQueue"), message + "_" + status);
-        } catch (JMSRuntimeException ex) {
-            log.severe(ex.getMessage());
+        if(mq_enabled) {
+            try (JMSContext context = connectionFactory.createContext(Session.AUTO_ACKNOWLEDGE)){
+                context.createProducer().send(context.createQueue("statusQueue"), message + "_" + status);
+            } catch (JMSRuntimeException ex) {
+                log.severe(ex.getMessage());
+            }
         }
     }
 

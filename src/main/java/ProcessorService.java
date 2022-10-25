@@ -90,10 +90,10 @@ public class ProcessorService {
 
         //for info endpoint
         if (getInfo) {
-        String[] infoLines = output.split(System.lineSeparator());
+        String[] infoLines = output.split("\n");
         List<String> tmp = Arrays.asList(infoLines);
-        List<String> info = new ArrayList<>(tmp);
-        info.set(0, "Currently running:");
+        List<String> info = new ArrayList<>();
+        info.add("Currently running: " + tmp);
         info.add("Wating list:");
         info.addAll(filesToProcess);
             return info;
@@ -441,7 +441,7 @@ public class ProcessorService {
                         "--format",
                         "\"table {{.Status}}\"");
                 output = executeCommand(processBuilder, root_path, directory, directory + ".java");
-                if (output.contains("minutes")) {
+                if (output.contains("hours")) {
                     getLogs(directory, root_path);
                     done(root_path,  directory,true);
                     removeDeadContainer(directory, root_path);
